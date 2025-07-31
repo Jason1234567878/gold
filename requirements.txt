@@ -8,10 +8,10 @@ yfinance==0.2.31
 requests==2.31.0
 
 # Database - WORKING VERSIONS FOR PYTHON 3.10
-supabase==1.0.3
-gotrue==0.6.5
-postgrest-py==0.9.3
-realtime-py==0.1.5
+supabase==1.0.0
+gotrue==0.5.4
+postgrest-py==0.8.0
+realtime-py==0.1.0
 
 # Utilities
 python-dotenv==1.0.0
