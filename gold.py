@@ -20,9 +20,9 @@ FMP_API_KEY = os.getenv("FMP_API_KEY")
 # Initialize Supabase client - WORKING VERSION
 try:
     supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-    logger.info("Supabase client initialized successfully")
+    logger.info("✅ Supabase client initialized successfully")
 except Exception as e:
-    logger.error(f"Failed to initialize Supabase client: {str(e)}")
+    logger.error(f"❌ Failed to initialize Supabase client: {str(e)}")
     raise
 
 # Timezone setup
