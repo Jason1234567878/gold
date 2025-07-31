@@ -17,16 +17,21 @@ SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 FMP_API_KEY = os.getenv("FMP_API_KEY")
 
-# Initialize Supabase client with updated configuration
-from supabase.lib.client_options import ClientOptions
-supabase: Client = create_client(
-    SUPABASE_URL,
-    SUPABASE_KEY,
-    options=ClientOptions(
-        postgrest_client_timeout=10,  # 10 second timeout
-        storage_client_timeout=10
+# Initialize Supabase client - COMPATIBLE VERSION
+try:
+    from supabase.lib.client_options import ClientOptions
+    supabase: Client = create_client(
+        SUPABASE_URL,
+        SUPABASE_KEY,
+        options=ClientOptions(
+            postgrest_client_timeout=10,
+            storage_client_timeout=10
+        )
     )
-)
+    logger.info("Supabase client initialized successfully")
+except Exception as e:
+    logger.error(f"Failed to initialize Supabase client: {str(e)}")
+    raise
 
 # Timezone setup
 tz_johannesburg = pytz.timezone("Africa/Johannesburg")
