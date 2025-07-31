@@ -13,3 +13,9 @@ python-dotenv==1.0.0  # Environment variables
 
 # Utilities
 pytz==2023.3.post1  # Timezone handling
+
+# Updated requirements.txt
+supabase==2.3.1
+gotrue==0.7.0
+postgrest-py==0.10.7
+realtime-py==0.1.5
