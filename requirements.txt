@@ -7,11 +7,11 @@ pandas_ta==0.3.14b0
 yfinance==0.2.31
 requests==2.31.0
 
-# Database - FULLY COMPATIBLE VERSIONS
+# Database - Fully Compatible Versions
 supabase==2.1.1
 gotrue==2.4.4
-postgrest-py==0.10.6  # Changed from 0.10.7 to 0.10.6
-realtime-py==0.2.0
+postgrest-py==0.10.6
+realtime-py==0.1.3  # Downgraded for Python 3.10 compatibility
 
 # Utilities
 python-dotenv==1.0.0
