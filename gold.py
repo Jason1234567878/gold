@@ -17,8 +17,16 @@ SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 FMP_API_KEY = os.getenv("FMP_API_KEY")
 
-# Initialize Supabase client
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+# Initialize Supabase client with updated configuration
+from supabase.lib.client_options import ClientOptions
+supabase: Client = create_client(
+    SUPABASE_URL,
+    SUPABASE_KEY,
+    options=ClientOptions(
+        postgrest_client_timeout=10,  # 10 second timeout
+        storage_client_timeout=10
+    )
+)
 
 # Timezone setup
 tz_johannesburg = pytz.timezone("Africa/Johannesburg")
@@ -29,7 +37,6 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
 # Data storage structures
 fmp_cache = {
     'daily_low': None,
