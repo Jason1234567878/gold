@@ -1,21 +1,18 @@
 # Core dependencies
-numpy==1.23.5  # Specific version compatible with pandas_ta
-pandas==1.5.3  # Tested compatible version
-pandas_ta==0.3.14b0  # Technical analysis library
+numpy==1.23.5
+pandas==1.5.3
+pandas_ta==0.3.14b0
 
 # Data fetching
-yfinance==0.2.31  # Yahoo Finance API
-requests==2.31.0  # HTTP requests
+yfinance==0.2.31
+requests==2.31.0
 
-# Database
-supabase==2.3.1  # Supabase client
-python-dotenv==1.0.0  # Environment variables
+# Database - COMPATIBLE VERSIONS FOR PYTHON 3.10
+supabase==2.2.0
+gotrue==0.6.5
+postgrest-py==0.9.3
+realtime-py==0.1.5
 
 # Utilities
-pytz==2023.3.post1  # Timezone handling
-
-# Updated requirements.txt
-supabase==2.3.1
-gotrue==0.7.0
-postgrest-py==0.10.7
-realtime-py==0.1.5
+python-dotenv==1.0.0
+pytz==2023.3.post1
