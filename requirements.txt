@@ -1,0 +1,7 @@
+requests
+yfinance
+pandas
+pandas-ta
+python-dotenv
+supabase
+pytz
