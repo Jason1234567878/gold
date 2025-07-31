@@ -732,36 +732,35 @@ def job():
     logger.info(f"System Health: {health}")
 
 if __name__ == "__main__":
-    logger.info("⚡ Initializing gold data fetcher")
-    last_data = get_last_valid_data()
-    
-    if last_data:
-        session_data['current'].update({
-            'high': last_data.get("session_high"),
-            'low': last_data.get("session_low"),
-            'open': last_data.get("session_open"),
-            'name': last_data.get("session_name")
-        })
-        session_data['previous'].update({
-            'high': last_data.get("previous_session_high"),
-            'low': last_data.get("previous_session_low"),
-            'open': last_data.get("previous_session_open")
-        })
-        session_data['last_reset_date'] = (
-            datetime.fromisoformat(last_data.get("timestamp")).astimezone(tz_johannesburg).date()
-            if last_data.get("timestamp") else None
-        )
-        logger.info(f"✅ Initialized from DB | Last Session: {session_data['current']['name']}")
+    logger.info("🚀 Starting Gold Tracker (GitHub Actions)")
+    try:
+        # Initialize from last database record
+        last_data = get_last_valid_data()
+        
+        if last_data:
+            session_data['current'].update({
+                'high': last_data.get("session_high"),
+                'low': last_data.get("session_low"),
+                'open': last_data.get("session_open"),
+                'name': last_data.get("session_name")
+            })
+            session_data['previous'].update({
+                'high': last_data.get("previous_session_high"),
+                'low': last_data.get("previous_session_low"),
+                'open': last_data.get("previous_session_open")
+            })
+            session_data['last_reset_date'] = (
+                datetime.fromisoformat(last_data.get("timestamp")).astimezone(tz_johannesburg).date()
+                if last_data.get("timestamp") else None
+            )
 
-    # Initial FMP fetch
-    fetch_gold_spot_price_fmp()
-
-    # Main loop
-    while True:
-        start_time = time.time()
+        # Initial FMP fetch
+        fetch_gold_spot_price_fmp()
+        
+        # Run one complete job cycle
         job()
         
-        elapsed = time.time() - start_time
-        sleep_time = max(180 - elapsed, 0)  # 3-minute interval
-        logger.info(f"⏳ Next run in {sleep_time:.1f}s")
-        time.sleep(sleep_time)
+        logger.info("✅ Gold tracker completed successfully")
+    except Exception as e:
+        logger.error(f"❌ Critical error: {str(e)}", exc_info=True)
+        raise  # This will make the GitHub Action fail
