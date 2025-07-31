@@ -1,18 +1,12 @@
-# Core data tools
 numpy==1.23.5
 pandas==1.5.3
 pandas_ta==0.3.14b0
-
-# Market data fetchers
 yfinance==0.2.31
 requests==2.31.0
-
-# Supabase integration
-supabase==2.1.1
+supabase==1.1.6
 gotrue==2.4.4
-postgrest-py==0.13.2          # Only works with Python >=3.11
-realtime==1.0.6               # Or realtime-py==0.1.3 for Py 3.10
-
-# Utilities
+postgrest-py==0.10.6
+httpx==0.23.3
+realtime-py==0.1.3
 python-dotenv==1.0.0
 pytz==2023.3.post1
