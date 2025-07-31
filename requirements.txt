@@ -1,7 +1,15 @@
-requests
-yfinance
-pandas
-pandas-ta
-python-dotenv
-supabase
-pytz
+# Core dependencies
+numpy==1.23.5  # Specific version compatible with pandas_ta
+pandas==1.5.3  # Tested compatible version
+pandas_ta==0.3.14b0  # Technical analysis library
+
+# Data fetching
+yfinance==0.2.31  # Yahoo Finance API
+requests==2.31.0  # HTTP requests
+
+# Database
+supabase==2.3.1  # Supabase client
+python-dotenv==1.0.0  # Environment variables
+
+# Utilities
+pytz==2023.3.post1  # Timezone handling
