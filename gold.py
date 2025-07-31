@@ -17,17 +17,9 @@ SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 FMP_API_KEY = os.getenv("FMP_API_KEY")
 
-# Initialize Supabase client - COMPATIBLE VERSION
+# Initialize Supabase client - WORKING VERSION
 try:
-    from supabase.lib.client_options import ClientOptions
-    supabase: Client = create_client(
-        SUPABASE_URL,
-        SUPABASE_KEY,
-        options=ClientOptions(
-            postgrest_client_timeout=10,
-            storage_client_timeout=10
-        )
-    )
+    supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
     logger.info("Supabase client initialized successfully")
 except Exception as e:
     logger.error(f"Failed to initialize Supabase client: {str(e)}")
