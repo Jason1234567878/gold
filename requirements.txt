@@ -1,17 +1,17 @@
-# Core dependencies
+# Core data tools
 numpy==1.23.5
 pandas==1.5.3
 pandas_ta==0.3.14b0
 
-# Data fetching
+# Market data fetchers
 yfinance==0.2.31
 requests==2.31.0
 
-# Database - Compatibility locked
+# Supabase integration
 supabase==2.1.1
 gotrue==2.4.4
-postgrest-py==0.10.6        # ✅ confirmed installable on Py 3.10
-realtime-py==0.1.3          # ✅ last version before Py 3.11 cutoff
+postgrest-py==0.13.2          # Only works with Python >=3.11
+realtime==1.0.6               # Or realtime-py==0.1.3 for Py 3.10
 
 # Utilities
 python-dotenv==1.0.0
