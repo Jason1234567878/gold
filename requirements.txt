@@ -7,8 +7,8 @@ pandas_ta==0.3.14b0
 yfinance==0.2.31
 requests==2.31.0
 
-# Database - COMPATIBLE VERSIONS FOR PYTHON 3.10
-supabase==2.2.0
+# Database - WORKING VERSIONS FOR PYTHON 3.10
+supabase==1.0.3
 gotrue==0.6.5
 postgrest-py==0.9.3
 realtime-py==0.1.5
