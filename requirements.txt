@@ -8,10 +8,10 @@ yfinance==0.2.31
 requests==2.31.0
 
 # Database - FULLY COMPATIBLE VERSIONS
-supabase==1.0.0
-gotrue==1.0.0
-postgrest-py==0.10.3  # Matches supabase 1.0.0's requirement
-realtime-py==0.1.0
+supabase==2.1.1  # Newer version with better dependency resolution
+gotrue==2.4.4    # Matching version
+postgrest-py==0.10.7
+realtime-py==0.2.0
 
 # Utilities
 python-dotenv==1.0.0
