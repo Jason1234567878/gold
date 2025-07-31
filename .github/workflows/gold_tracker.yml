@@ -1,0 +1,31 @@
+name: Gold Price Tracker
+on:
+  schedule:
+    # Runs every 3 minutes from 00:00-20:59 UTC (2am-10:59pm Johannesburg time)
+    - cron: '*/3 0-20 * * 1-5'
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  track-gold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5  # Prevents hanging
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Run gold tracker
+      env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+      run: python gold.py
